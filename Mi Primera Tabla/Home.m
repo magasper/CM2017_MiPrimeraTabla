@@ -73,6 +73,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //Pending
 }
+/**********************************************************************************************/
+#pragma mark - Action methods
+/**********************************************************************************************/
+- (IBAction)btnAddPressed:(id)sender {
+    [self.userNames addObject:@"Walter"];
+    [self.userAges addObject:@"37 años"];
+    [self.userImages addObject:@"jon.jpg"];
+    [self.tblMain reloadData];
+}
 
 
 @end
