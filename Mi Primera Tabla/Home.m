@@ -8,8 +8,9 @@
 
 #import "Home.h"
 #import "cellMainTable.h"
+#import "NewPerson.h"
 
-@interface Home ()
+@interface Home () <addPersonalDelegate>;
 @property NSMutableArray *userNames;
 @property NSMutableArray *userAges;
 @property NSMutableArray *userImages;
@@ -77,10 +78,25 @@
 #pragma mark - Action methods
 /**********************************************************************************************/
 - (IBAction)btnAddPressed:(id)sender {
-    [self.userNames addObject:@"Walter"];
-    [self.userAges addObject:@"37 años"];
-    [self.userImages addObject:@"jon.jpg"];
+    [self performSegueWithIdentifier:@"addPersonal" sender:nil];
+    
+    //[self.userNames addObject:@"Walter"];
+    //[self.userAges addObject:@"37 años"];
+    //[self.userImages addObject:@"jon.jpg"];
+    //[self.tblMain reloadData];
+}
+
+- (void)personalName: (NSString*) name personalAge: (NSString*) age personalImage: (UIImage *) image{
+    [self.userNames addObject:name];
+    [self.userAges addObject: age];
+    [self.userImages addObject:image];
     [self.tblMain reloadData];
+
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    
 }
 
 
