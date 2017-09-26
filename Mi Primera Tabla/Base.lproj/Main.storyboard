@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -60,6 +65,7 @@
                     <connections>
                         <outlet property="tblMain" destination="3Qd-RE-hXc" id="eR7-1v-nwa"/>
                         <segue destination="3mh-SA-cx0" kind="push" identifier="addPersonal" id="8Ba-7k-sah"/>
+                        <segue destination="vNI-zX-MSN" kind="push" identifier="showDetail" id="0oC-FS-LnG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,9 +73,24 @@
             <point key="canvasLocation" x="590.5" y="124.5"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="9Iv-Yn-RXL">
+            <objects>
+                <viewController id="vNI-zX-MSN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZWD-ub-qQU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qqe-G7-cyf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mH-I4-oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="-652"/>
+        </scene>
+        <!--New Person-->
         <scene sceneID="OMT-8L-Chq">
             <objects>
-                <viewController id="3mh-SA-cx0" sceneMemberID="viewController">
+                <viewController id="3mh-SA-cx0" customClass="NewPerson" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DFa-cQ-YOu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,18 +115,33 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Agregar"/>
+                                <connections>
+                                    <action selector="btnAdd:" destination="3mh-SA-cx0" eventType="touchUpInside" id="854-oq-kcB"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xK6-4x-Xmn">
-                                <rect key="frame" x="150" y="86" width="84" height="83"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="camera-1724286_960_720.png" id="38M-q9-NRv">
+                                <rect key="frame" x="140" y="73" width="104" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="camera-1724286_960_720.png"/>
-                            </button>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3hI-TM-MXM" appends="YES" id="ZBl-G6-rYB"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OXM-h3-XQc"/>
+                    <connections>
+                        <outlet property="imageSelection" destination="38M-q9-NRv" id="a5F-b6-cCZ"/>
+                        <outlet property="txtAge" destination="Cte-Ub-sJc" id="I8p-TR-SYX"/>
+                        <outlet property="txtName" destination="lgj-pk-2pV" id="kVY-Lh-Zrh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRX-J9-4BK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3hI-TM-MXM">
+                    <connections>
+                        <action selector="btnActionPic:" destination="3mh-SA-cx0" id="25m-5w-8nr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1143.5" y="124.5"/>
         </scene>

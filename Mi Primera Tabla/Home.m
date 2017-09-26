@@ -10,10 +10,12 @@
 #import "cellMainTable.h"
 #import "NewPerson.h"
 
-@interface Home () <addPersonalDelegate>;
+@interface Home () <addPersonalDelegate>
 @property NSMutableArray *userNames;
 @property NSMutableArray *userAges;
 @property NSMutableArray *userImages;
+
+@property 
 @end
 
 @implementation Home
@@ -37,7 +39,7 @@
     
     self.userAges  = [[NSMutableArray alloc] initWithObjects: @"38 años", @"22 años", @"25 años", @"16 años", @"42 años", nil];
 
-    self.userImages = [[NSMutableArray alloc] initWithObjects: @"tyrion.jpg", @"daenerys.jpeg", @"jon.jpg", @"arya.jpg", @"cersei.jpg", nil];
+    self.userImages = [[NSMutableArray alloc] initWithObjects: [UIImage imageNamed:@"tyrion.jpg"], [UIImage imageNamed:@"daenerys.jpeg" ], [UIImage imageNamed:@"jon.jpg"], [UIImage imageNamed:@"arya.jpg"], [UIImage imageNamed:@"cersei.jpg"], nil];
 }
 
 /**********************************************************************************************/
@@ -66,7 +68,7 @@
     //Fill cell with info from arrays
     cell.lblName.text       = self.userNames[indexPath.row];
     cell.lblAge.text        = self.userAges[indexPath.row];
-    cell.imgUser.image      = [UIImage imageNamed:self.userImages[indexPath.row]];
+    cell.imgUser.image      = self.userImages[indexPath.row];
     
     return cell;
 }
@@ -87,6 +89,8 @@
 }
 
 - (void)personalName: (NSString*) name personalAge: (NSString*) age personalImage: (UIImage *) image{
+    NSLog(@"Listo para pintar");
+    
     [self.userNames addObject:name];
     [self.userAges addObject: age];
     [self.userImages addObject:image];
@@ -95,6 +99,11 @@
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"addPersonal"]) {
+        NewPerson *person = [segue destinationViewController];
+        
+        person.delegate = self;
+    }
 
     
 }
