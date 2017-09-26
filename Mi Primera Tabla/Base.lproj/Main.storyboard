@@ -72,20 +72,53 @@
             </objects>
             <point key="canvasLocation" x="590.5" y="124.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Person-->
         <scene sceneID="9Iv-Yn-RXL">
             <objects>
-                <viewController id="vNI-zX-MSN" sceneMemberID="viewController">
+                <viewController id="vNI-zX-MSN" customClass="DetailPerson" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZWD-ub-qQU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Fdi-fy-87e">
+                                <rect key="frame" x="67" y="92" width="240" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sc2-n1-K5P">
+                                <rect key="frame" x="102" y="274" width="166" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MET-2M-s9q">
+                                <rect key="frame" x="102" y="323" width="166" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9vK-av-LCd">
+                                <rect key="frame" x="102" y="372" width="166" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qqe-G7-cyf"/>
+                    <connections>
+                        <outlet property="imagePersonal" destination="Fdi-fy-87e" id="ZMJ-4L-ofq"/>
+                        <outlet property="lblAge" destination="MET-2M-s9q" id="308-Ae-DHG"/>
+                        <outlet property="lblDescription" destination="9vK-av-LCd" id="jwf-9n-qQG"/>
+                        <outlet property="lblName" destination="Sc2-n1-K5P" id="IJ5-wP-3DW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mH-I4-oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="-652"/>
+            <point key="canvasLocation" x="1139.5" y="-652.5"/>
         </scene>
         <!--New Person-->
         <scene sceneID="OMT-8L-Chq">

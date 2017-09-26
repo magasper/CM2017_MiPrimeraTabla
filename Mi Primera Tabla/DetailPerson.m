@@ -9,6 +9,10 @@
 #import "DetailPerson.h"
 
 @interface DetailPerson ()
+@property (strong, nonatomic) IBOutlet UIImageView *imagePersonal;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblAge;
+@property (strong, nonatomic) IBOutlet UILabel *lblDescription;
 
 @end
 
@@ -17,6 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (self.person != nil) {
+        self.imagePersonal.image = self.person[@"image"];
+        self.lblName.text = self.person[@"name"];
+        self.lblDescription.text = self.person[@"description"];
+        self.lblAge.text = self.person[@"age"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
